@@ -1,0 +1,9 @@
+{
+  "extension.description": "CPU, память и графики времени работы процесса во время отладки.",
+  "view.name": "Ресурсы процесса",
+  "command.selectProcess": "Debug Resource Metrics: Выбрать процесс",
+  "config.title": "Debug Resource Metrics",
+  "config.sampleInterval": "Интервал между измерениями в миллисекундах.",
+  "config.historySize": "Максимальное число точек графика для каждой сессии.",
+  "config.autoReveal": "Открывать панель ресурсов при запуске отладки."
+}

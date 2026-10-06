@@ -1,0 +1,85 @@
+{
+  "name": "debug-resource-metrics",
+  "displayName": "Debug Resource Metrics",
+  "description": "%extension.description%",
+  "version": "0.2.0",
+  "publisher": "a3st",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Debuggers"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onDebug"
+  ],
+  "scripts": {
+    "compile": "tsc -p tsconfig.json && tsc -p tsconfig.webview.json",
+    "vscode:prepublish": "npm run compile",
+    "test": "npm run compile && node --test test/*.test.js",
+    "package": "npm run compile && python scripts/package.py"
+  },
+  "contributes": {
+    "views": {
+      "debug": [
+        {
+          "id": "debugResourceMetrics",
+          "name": "%view.name%",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "debugResourceMetrics.selectProcess",
+        "title": "%command.selectProcess%",
+        "icon": "$(target)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "debugResourceMetrics.selectProcess",
+          "when": "view == debugResourceMetrics",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "debugResourceMetrics.sampleInterval": {
+          "type": "number",
+          "default": 1000,
+          "minimum": 500,
+          "maximum": 10000,
+          "description": "%config.sampleInterval%"
+        },
+        "debugResourceMetrics.historySize": {
+          "type": "number",
+          "default": 180,
+          "minimum": 30,
+          "maximum": 3600,
+          "description": "%config.historySize%"
+        },
+        "debugResourceMetrics.autoReveal": {
+          "type": "boolean",
+          "default": true,
+          "description": "%config.autoReveal%"
+        }
+      }
+    }
+  },
+  "author": "a3st",
+  "l10n": "./l10n",
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "@types/vscode": "1.85.0",
+    "typescript": "^5.9.3"
+  }
+}

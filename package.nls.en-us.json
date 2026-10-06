@@ -1,0 +1,9 @@
+{
+  "extension.description": "Live process CPU, memory and runtime charts in Run and Debug.",
+  "view.name": "Resource Metrics",
+  "command.selectProcess": "Debug Resource Metrics: Select Process",
+  "config.title": "Debug Resource Metrics",
+  "config.sampleInterval": "Sampling interval in milliseconds.",
+  "config.historySize": "Maximum chart samples per session.",
+  "config.autoReveal": "Show Resource Metrics when debugging starts."
+}
